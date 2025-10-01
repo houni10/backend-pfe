@@ -1,7 +1,8 @@
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",        # adapte si ton XAMPP a un autre user
-    "password": "",        # ton mot de passe MySQL (par défaut vide)
-    "database": "pcba_inspector",
-    "port": 3306
+    "host": "pcb-server.mysql.database.azure.com",
+    "user": "dygfagkjzy",
+    "password": "h223JMT7172",  # your Azure MySQL password
+    "database": "pcb-database",
+    "port": 3306,
+    "ssl": {"ssl_mode": "REQUIRED"}  # enforce SSL for Azure
 }
