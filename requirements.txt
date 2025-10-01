@@ -1,0 +1,11 @@
+flask
+flask-socketio
+eventlet
+flask-cors
+flask-sqlalchemy
+flask-migrate
+psycopg2-binary   # si tu utilises PostgreSQL
+mysqlclient       # ou ce paquet si tu utilises MySQL
+python-dotenv
+pymysql
+cryptography
