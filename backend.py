@@ -7,7 +7,7 @@ import pymysql
 import json
 
 #-----------------------------------------------------------
-# Configuration Flask + SocketIO
+#Configuration Flask + SocketIO
 # -----------------------------------------------------------
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'pcb-inspector-secret-key-2024'
