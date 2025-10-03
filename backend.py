@@ -24,9 +24,9 @@ logger = logging.getLogger(__name__)
 import os
 
 DB_CONFIG = {
-    "host": os.getenv("MYSQL_HOST", "localhost"),
-    "user": os.getenv("MYSQL_USER", "root"),
-    "password": os.getenv("MYSQL_PASSWORD", ""),
+    "host": os.getenv("MYSQL_HOST", "pcb-server.mysql.database.azure.com"),
+    "user": os.getenv("MYSQL_USER", "dygfagkjzy"),
+    "password": os.getenv("MYSQL_PASSWORD", "h223JMT7172"),
     "database": os.getenv("MYSQL_DATABASE", "pcba_inspector"),
     "port": int(os.getenv("MYSQL_PORT", "3306"))
 }
@@ -72,9 +72,8 @@ def init_database():
         cursor.execute("USE pcba_inspector")
         
         # Drop and recreate inspections table with all required fields
-        cursor.execute("DROP TABLE IF EXISTS inspections")
         cursor.execute("""
-            CREATE TABLE inspections (
+            CREATE TABLE IF NOT EXISTS inspections (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 pcb_id VARCHAR(50),
                 status ENUM('passed','failed') NOT NULL,
