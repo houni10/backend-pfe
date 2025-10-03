@@ -26,7 +26,7 @@ import os
 
 DB_CONFIG = {
     "host": "pcb-server.mysql.database.azure.com",
-    "user": "dygfagkjzy@pcb-server",   # si 1045 persiste, essaie sans suffixe: "dygfagkjzy"
+    "user": "dygfagkjzy",   # si 1045 persiste, essaie sans suffixe: "dygfagkjzy"
     "password": "h223JMT7172",
     "database": "pcba_inspector",
     "port": 3306,
