@@ -2,7 +2,7 @@ DB_CONFIG = {
     "host": "pcb-server.mysql.database.azure.com",
     "user": "dygfagkjzy",
     "password": "h223JMT7172",  # your Azure MySQL password
-    "database": "pcb-database",
+    "database": "pcb-inspector",
     "port": 3306,
     "ssl": {"ssl_mode": "REQUIRED"}  # enforce SSL for Azure
 }
