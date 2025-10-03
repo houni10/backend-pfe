@@ -4,5 +4,5 @@ DB_CONFIG = {
     "password": "h223JMT7172",  # your Azure MySQL password
     "database": "pcb_inspector",
     "port": 3306,
-    "ssl": {"ssl_mode": "REQUIRED"}  # enforce SSL for Azure
+    "ssl": {}
 }
