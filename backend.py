@@ -5,6 +5,7 @@ from datetime import datetime
 import logging
 import pymysql
 import json
+import ssl
 
 #-----------------------------------------------------------
 #Configuration Flask + SocketIO
@@ -25,11 +26,15 @@ import os
 
 DB_CONFIG = {
     "host": "pcb-server.mysql.database.azure.com",
-    "user": "dygfagkjzy@pcb-server",
+    "user": "dygfagkjzy@pcb-server",   # si 1045 persiste, essaie sans suffixe: "dygfagkjzy"
     "password": "h223JMT7172",
     "database": "pcba_inspector",
     "port": 3306,
 }
+
+SSL_CTX = ssl.create_default_context()
+SSL_CTX.check_hostname = False
+SSL_CTX.verify_mode = ssl.CERT_NONE
 
 def get_db_connection():
     try:
@@ -39,8 +44,12 @@ def get_db_connection():
             password=DB_CONFIG["password"],
             database=DB_CONFIG["database"],
             port=DB_CONFIG["port"],
+            ssl={"ssl": SSL_CTX},  # <-- AJOUT
+            charset="utf8mb4",
+            use_unicode=True,
             cursorclass=pymysql.cursors.DictCursor
         )
+        
     except pymysql.err.OperationalError as e:
         if e.args[0] == 1049:  # Database doesn't exist
             logger.info("Database doesn't exist, creating it...")
@@ -51,6 +60,9 @@ def get_db_connection():
                 password=DB_CONFIG["password"],
                 database=DB_CONFIG["database"],
                 port=DB_CONFIG["port"],
+                ssl={"ssl": SSL_CTX},            # ✅ ne pas oublier ici
+                charset="utf8mb4",
+                use_unicode=True,
                 cursorclass=pymysql.cursors.DictCursor
             )
         else:
@@ -63,6 +75,9 @@ def init_database():
         user=DB_CONFIG["user"],
         password=DB_CONFIG["password"],
         port=DB_CONFIG["port"],
+        ssl={"ssl": SSL_CTX},                    # ✅ et ici
+        charset="utf8mb4",
+        use_unicode=True,
         cursorclass=pymysql.cursors.DictCursor
     )
     
