@@ -24,11 +24,11 @@ logger = logging.getLogger(__name__)
 import os
 
 DB_CONFIG = {
-    "host": os.getenv("MYSQL_HOST", "pcb-server.mysql.database.azure.com"),
-    "user": os.getenv("MYSQL_USER", "dygfagkjzy"),
-    "password": os.getenv("MYSQL_PASSWORD", "h223JMT7172"),
-    "database": os.getenv("MYSQL_DATABASE", "pcba_inspector"),
-    "port": int(os.getenv("MYSQL_PORT", "3306"))
+    "host": "pcb-server.mysql.database.azure.com",
+    "user": "dygfagkjzy@pcb-server",
+    "password": "h223JMT7172",
+    "database": "pcba_inspector",
+    "port": 3306,
 }
 
 def get_db_connection():
