@@ -76,8 +76,8 @@ def init_database():
     
     with conn.cursor() as cursor:
         # Create database
-        cursor.execute("CREATE DATABASE IF NOT EXISTS pcba_inspector")
-        cursor.execute("USE pcba_inspector")
+        cursor.execute("CREATE DATABASE IF NOT EXISTS b8rwvnqo0smbmfgxr9ko")
+        cursor.execute("USE b8rwvnqo0smbmfgxr9ko")
         
         # Drop and recreate inspections table with all required fields
         cursor.execute("""
