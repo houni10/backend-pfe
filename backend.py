@@ -127,25 +127,6 @@ def init_database():
             )
         """)
         
-        # Insert default operators
-        cursor.execute("""
-            INSERT IGNORE INTO operators (name, shift) VALUES 
-            ('admin', 'jour'),
-            ('henri', 'jour'),
-            ('operator1', 'matin'),
-            ('operator2', 'après-midi'),
-            ('Opérateur Desktop', 'jour')
-        """)
-        
-        # Insert default stations
-        cursor.execute("""
-            INSERT IGNORE INTO stations (name, line) VALUES 
-            ('Station Vision Desktop', 'line-desktop'),
-            ('Station Vision1', 'line-1'),
-            ('Station Vision2', 'line-2'),
-            ('Station Vision3', 'line-3')
-        """)
-        
         conn.commit()
         logger.info("✅ Database and tables created successfully with enhanced schema")
     
