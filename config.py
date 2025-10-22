@@ -1,8 +1,7 @@
 DB_CONFIG = {
-    "host": "pcb-server.mysql.database.azure.com",
-    "user": "dygfagkjzy",
-    "password": "h223JMT7172",  # your Azure MySQL password
-    "database": "pcb_inspector",
+    "host": "b8rwvnqo0smbmfgxr9ko-mysql.services.clever-cloud.com",
+    "user": "utvn9ejhfssla87g",
+    "password": "4nQQQQ6MUF1h7IMBGpAo",  # your Azure MySQL password
+    "database": "b8rwvnqo0smbmfgxr9ko",
     "port": 3306,
-    "ssl": {}
 }
