@@ -25,16 +25,12 @@ logger = logging.getLogger(__name__)
 import os
 
 DB_CONFIG = {
-    "host": "pcb-server.mysql.database.azure.com",
-    "user": "dygfagkjzy",   # si 1045 persiste, essaie sans suffixe: "dygfagkjzy"
-    "password": "h223JMT7172",
-    "database": "pcba_inspector",
+    "host": "b8rwvnqo0smbmfgxr9ko-mysql.services.clever-cloud.com",
+    "user": "utvn9ejhfssla87g",   # si 1045 persiste, essaie sans suffixe: "dygfagkjzy"
+    "password": "4nQQQQ6MUF1h7IMBGpAo",
+    "database": "b8rwvnqo0smbmfgxr9ko",
     "port": 3306,
 }
-
-SSL_CTX = ssl.create_default_context()
-SSL_CTX.check_hostname = False
-SSL_CTX.verify_mode = ssl.CERT_NONE
 
 def get_db_connection():
     try:
@@ -44,7 +40,6 @@ def get_db_connection():
             password=DB_CONFIG["password"],
             database=DB_CONFIG["database"],
             port=DB_CONFIG["port"],
-            ssl={"ssl": SSL_CTX},  # <-- AJOUT
             charset="utf8mb4",
             use_unicode=True,
             cursorclass=pymysql.cursors.DictCursor
@@ -60,7 +55,6 @@ def get_db_connection():
                 password=DB_CONFIG["password"],
                 database=DB_CONFIG["database"],
                 port=DB_CONFIG["port"],
-                ssl={"ssl": SSL_CTX},            # ✅ ne pas oublier ici
                 charset="utf8mb4",
                 use_unicode=True,
                 cursorclass=pymysql.cursors.DictCursor
@@ -75,7 +69,6 @@ def init_database():
         user=DB_CONFIG["user"],
         password=DB_CONFIG["password"],
         port=DB_CONFIG["port"],
-        ssl={"ssl": SSL_CTX},                    # ✅ et ici
         charset="utf8mb4",
         use_unicode=True,
         cursorclass=pymysql.cursors.DictCursor
